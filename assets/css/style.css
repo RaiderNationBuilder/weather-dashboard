@@ -69,7 +69,7 @@ li {
     background: transparent;
     color: black;
     text-align: left;    
-    flex-basis: 21%;
+    width: fit-content;
 }
 
 .city-span1 {
