@@ -1,3 +1,109 @@
-main {
-    color: blueviolet;
+* {
+    margin: 0;
+}
+
+.horizontal-gradient {
+    background: linear-gradient(to right, blue, rgb(46, 2, 116));
+}
+
+.header-h2 {
+    color: white;
+    background-color: rgb(94, 12, 245);
+    text-align: center;
+    font-weight: bolder;
+    flex-basis: 100%;
+    line-height: 2em;
+}
+
+.aside {
+    padding-left: 1.5%;
+    padding-right: 0;    
+}
+
+form {    
+    border-bottom: 0.15em solid black;
+    padding-right: 0;
+}
+
+.form-h2 {
+    background: transparent;
+    color:black;
+}
+
+.button-style {
+    width: 100%;
+    background-color: #74a1e5;
+    color: white;
+    height: 2em;
+    padding: 0;
+    margin-bottom: 1em;
+}
+
+.city-button {
+    background-color:#a1a7ad ;
+    color: black;
+    font-weight: 500;
+}
+
+ul {
+    margin-top: 0.9em;
+}
+
+li {
+    list-style: none;
+    line-height: 2em;
+}
+
+.city-weather{
+    border: .11em solid black;
+    padding-left:0.2em;
+    margin-right: 0.75rem;
+}
+
+.city-row {
+    display:flex;
+}
+
+.section-h2 {
+    font-weight: bolder;
+    background: transparent;
+    color: black;
+    text-align: left;    
+    flex-basis: 21%;
+}
+
+.city-span1 {
+    margin-right: 0.7em; 
+    margin-left: 0.1em;   
+}
+
+.city-span2 {
+    flex-grow: 3;
+}
+
+p {
+    font-weight: 500;
+}
+
+h5 {
+    font-weight:bolder;
+    padding: 0.6em 0em 0.1em 0em;
+}
+
+/* 
+.city-btn:hover {
+    background-color: #f6f5f5;
+    cursor: pointer;
+}*/
+
+.card {
+    background-color: #183d52;
+    color:white;
+    width: 10rem;
+    margin-left: 1rem;
+    margin-right: 0.35rem;
+} 
+
+.card-body {
+    padding: 0.1rem 0 0.7rem 0.1em;
 }
