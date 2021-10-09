@@ -112,18 +112,46 @@ console.log('global thing test ??', name)
 
 }
 
-function searchHistory(city, lol) {
-    console.log('CITY TO SAVE', city, lol)
-    var pastSearches = []
+function searchHistory(city) {
+    console.log('CITY TO SAVE', city)
+    var pastSearches = []    
 
     if (localStorage.getItem('searchHistroy')) {
         pastSearches = JSON.parse(localStorage.getItem('searchHistroy'))
+        console.log(pastSearches.length)
+        
     }
-
     //push the new city into the pastSearches array
-    //set local starge of serachHistroy to your pastSeraches array
+    if (!pastSearches.includes(city) && pastSearches.length < 8 && city != "") {
+        pastSearches.push(city)
+        console.log(pastSearches)
+        //set local storge of serachHistroy to your pastSeraches array
+        localStorage.setItem('searchHistroy', JSON.stringify(pastSearches))           
+    } else if (pastSearches.length = 8 && city != "") {
+        pastSearches.shift()
+        pastSearches.push(city)
+        console.log(pastSearches)
+        //set local storge of serachHistroy to your pastSeraches array
+        localStorage.setItem('searchHistroy', JSON.stringify(pastSearches))  
+    }
+    addHtmlHistory(pastSearches)
     
-    // [] JSON.stringfy
-    name = 'TOm'
-    //return name
+    // for development
+    // function clearArray(pastSearches) {
+    //     pastSearches.length = 0
+    //     console.log(pastSearches)
+    // }
+    // clearArray(pastSearches);
+}
+  
+function addHtmlHistory(pastSearches) {
+    $('#search-history-list').empty()
+
+    for (var i = 0; i < pastSearches.length; i++) {
+        var html = $(`
+                <li><button class="btn button-style city-button" type="button" id="search-city-button">${pastSearches[i]}</button></li>
+        `)
+
+        $('#search-history-list').append(html)
+    }
 }
