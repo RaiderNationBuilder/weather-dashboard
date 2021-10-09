@@ -16,33 +16,37 @@ var globalThing ='first global val'
 // Find current date and display in title
 var currentDate = moment().format('L');
 $("#current-date").text("(" + currentDate + ")");
-// console.log('current temp' + JSON.stringify(currentTemp));
 
+// api call with search input
 $('#search').on("click", function (event, searchInput) {
     event.preventDefault();
-
-    // searchInput = '';
     var searchInput = $('#search-city').val();
     console.log(searchInput);
-    // Grab value entered into search bar 
-    // if (!$('#search')) {
-    //     var searchInput = "neenah";
-    // } else {
-    //     var searchInput = JSON.stringify($('#search').val().trim());
-    // }
     searchHistory(searchInput, ' TEST SECOND CITY');
     getCurrentConditions(searchInput)
-   
-  
- 
+})
 
+$('#search-history-list').on("click", function (event) {
+    event.preventDefault();
+    $('.city-button').each(function() {
+        $(this).click(function(){
+            var id = "#" + $(this).attr('id') 
+            console.log(id)
+            var historyCity = $(id).text()
+            console.log(historyCity)
+
+            // searchHistory(historyCity);
+            getCurrentConditions(historyCity)
+
+        });
+     });    
 })
 
 
+var callHistoricalConditions = function (historyCity) {
 
-
+}
 var getCurrentConditions = function (searchInput) {
-console.log('global thing test ??', name)
     var searchCity = searchInput;
     console.log(searchCity);
     var apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + searchCity + "&appid=" + apiKey + "&units=imperial";
@@ -81,7 +85,7 @@ console.log('global thing test ??', name)
                 $('#five-day-forecast').empty()
                 for (let i = 0; i < 5; i++) {
                     var someDate = new Date()
-
+                    console.log('activated for loop')
                     var dd = someDate.getDate();
                     var mm = someDate.getMonth() + i;
                     var y = someDate.getFullYear();
@@ -148,8 +152,9 @@ function addHtmlHistory(pastSearches) {
     $('#search-history-list').empty()
 
     for (var i = 0; i < pastSearches.length; i++) {
+        console.log('activated history for loop')
         var html = $(`
-                <li><button class="btn button-style city-button" type="button" id="search-city-button">${pastSearches[i]}</button></li>
+                <li><button class="btn button-style city-button" type="button" id="search-city-button${i}">${pastSearches[i]}</button></li>
         `)
 
         $('#search-history-list').append(html)
