@@ -68,7 +68,7 @@ var callHistoricalConditions = function (historyCity) {
             currentCity.text(response.name);  
             $(todaysDate).text("(" + currentDate + ")")
             $('#current-img').empty()
-            $('#current-img').append("<img src='https://openweathermap.org/img/w/" + response.weather[0].icon + ".png' alt='" + response.weather[0].main + "' />")
+            $('#current-img').append("<img src='http//openweathermap.org/img/w/" + response.weather[0].icon + ".png' alt='" + response.weather[0].main + "' />")
             currentTemp.text("Temp: " + response.main.temp);
             currentTemp.append("&deg;F");
             currentHumidity.text("Humidity: " + response.main.humidity + "%");
@@ -77,7 +77,7 @@ var callHistoricalConditions = function (historyCity) {
             var latitude = response.coord.lat;
             var longitude = response.coord.lon;
 
-            var oneCall = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + latitude + '&lon=' + longitude + '&exclude=hourly,minutely&appid=' + apiKey + '&units=imperial'
+            var oneCall = 'http://api.openweathermap.org/data/2.5/onecall?lat=' + latitude + '&lon=' + longitude + '&exclude=hourly,minutely&appid=' + apiKey + '&units=imperial'
            
             // AJAX Call for UV index
             $.ajax({
@@ -118,7 +118,7 @@ var callHistoricalConditions = function (historyCity) {
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Date ${someFormattedDate}</h5>
-                           ${"<img src='https://openweathermap.org/img/w/" + response.daily[i].weather[0].icon + ".png' alt='" + response.daily[i].weather[0].icon + "' />"}
+                           ${"<img src='http://openweathermap.org/img/w/" + response.daily[i].weather[0].icon + ".png' alt='" + response.daily[i].weather[0].icon + "' />"}
                             <p class="card-text">Temp: ${response.daily[i].temp.day} </p>
                             <p class="card-text">Wind: ${response.daily[i].wind_speed}</p>
                             <p class="card-text">Humidity: ${response.daily[i].humidity}</p>
@@ -136,7 +136,7 @@ var getCurrentConditions = function (searchInput) {
     console.log('getCurrentConditions');
     var searchCity = searchInput;
     console.log(searchCity);
-    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + searchCity + "&appid=" + apiKey + "&units=imperial";
+    var apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + searchCity + "&appid=" + apiKey + "&units=imperial";
     fetch(apiUrl)
         .then(function (data) {
             console.log(data)
@@ -147,7 +147,7 @@ var getCurrentConditions = function (searchInput) {
             
             $(todaysDate).text("(" + currentDate + ")")
             $('#current-img').empty()
-            $('#current-img').append("<img src='https://openweathermap.org/img/w/" + response.weather[0].icon + ".png' alt='" + response.weather[0].main + "' />")
+            $('#current-img').append("<img src='http://openweathermap.org/img/w/" + response.weather[0].icon + ".png' alt='" + response.weather[0].main + "' />")
             currentTemp.text("Temp: " + response.main.temp);
             currentTemp.append("&deg;F");
             currentHumidity.text("Humidity: " + response.main.humidity + "%");
@@ -156,7 +156,7 @@ var getCurrentConditions = function (searchInput) {
             var latitude = response.coord.lat;
             var longitude = response.coord.lon;
 
-            var oneCall = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + latitude + '&lon=' + longitude + '&exclude=hourly,minutely&appid=' + apiKey + '&units=imperial'
+            var oneCall = 'http://api.openweathermap.org/data/2.5/onecall?lat=' + latitude + '&lon=' + longitude + '&exclude=hourly,minutely&appid=' + apiKey + '&units=imperial'
             // AJAX Call for UV index
             $.ajax({
                 url: oneCall,
@@ -194,7 +194,7 @@ var getCurrentConditions = function (searchInput) {
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Date ${someFormattedDate}</h5>
-                           ${"<img src='https://openweathermap.org/img/w/" + response.daily[i].weather[0].icon + ".png' alt='" + response.daily[i].weather[0].icon + "' />"}
+                           ${"<img src='s://openweathermap.org/img/w/" + response.daily[i].weather[0].icon + ".png' alt='" + response.daily[i].weather[0].icon + "' />"}
                             <p class="card-text">Temp: ${response.daily[i].temp.day} </p>
                             <p class="card-text">Wind: ${response.daily[i].wind_speed}</p>
                             <p class="card-text">Humidity: ${response.daily[i].humidity}</p>
