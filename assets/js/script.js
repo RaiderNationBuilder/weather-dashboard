@@ -10,7 +10,7 @@ var currentImg = $('#current-img');
 var pastSearches = [] 
 var searchInput
 
-$(window).ready(function(pastSearches) {
+$(window).ready(function() {
     console.log('ready')
     if (localStorage.getItem('searchHistroy')) {
         pastSearches = JSON.parse(localStorage.getItem('searchHistroy'))
@@ -118,7 +118,7 @@ var callHistoricalConditions = function (historyCity) {
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Date ${someFormattedDate}</h5>
-                           ${"<img src='https://openweathermap.org/img/w/" + response.daily[i].weather[0].icon + ".png' alt='" + response.daily[i].weather[0].icon + "' />"}
+                            <img src="https://openweathermap.org/img/w/${response.daily[i].weather[0].icon}.png" alt="${response.daily[i].weather[0].icon}"/>
                             <p class="card-text">Temp: ${response.daily[i].temp.day} </p>
                             <p class="card-text">Wind: ${response.daily[i].wind_speed}</p>
                             <p class="card-text">Humidity: ${response.daily[i].humidity}</p>
@@ -190,11 +190,16 @@ var getCurrentConditions = function (searchInput) {
                     var mm = someDate.getMonth() + i;
                     var y = someDate.getFullYear();
                     var someFormattedDate = dd + '/' + mm + '/' + y;
+                    console.log(response.daily[i].weather[0].icon)
                     var html = $(`
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Date ${someFormattedDate}</h5>
+<<<<<<< HEAD
                             <img src="https://openweathermap.org/img/w/ ${response.daily[i].weather[0].icon} .png" alt=" ${response.daily[i].weather[0].icon} "/>}
+=======
+                            <img src="https://openweathermap.org/img/w/${response.daily[i].weather[0].icon}.png" alt="${response.daily[i].weather[0].icon}"/>
+>>>>>>> develop
                             <p class="card-text">Temp: ${response.daily[i].temp.day} </p>
                             <p class="card-text">Wind: ${response.daily[i].wind_speed}</p>
                             <p class="card-text">Humidity: ${response.daily[i].humidity}</p>
