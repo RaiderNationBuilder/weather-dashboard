@@ -136,7 +136,7 @@ var getCurrentConditions = function (searchInput) {
     console.log('getCurrentConditions');
     var searchCity = searchInput;
     console.log(searchCity);
-    var apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + searchCity + "&appid=" + apiKey + "&units=imperial";
+    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + searchCity + "&appid=" + apiKey + "&units=imperial";
     fetch(apiUrl)
         .then(function (data) {
             console.log(data)
