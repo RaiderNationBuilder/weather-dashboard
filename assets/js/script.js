@@ -88,19 +88,19 @@ var callHistoricalConditions = function (historyCity) {
                 var uvText = response.current.uvi
                 console.log(uvText)
                 if (uvText <= 2) {                    
-                    $('.scale').addClass('green');
+                    $('#uv-div').toggleClass().addClass('scale green');
                     console.log('add green class')
                 } else if (uvText > 2 && uvText <= 5) {                    
-                    $('.scale').addClass('yellow');
+                    $('#uv-div').toggleClass().toggleClass('scale yellow');
                     console.log('add yellow class')
                 } else if (uvText > 5 && uvText <= 7) {                    
-                    $('.scale').addClass('orange');
+                    $('#uv-div').toggleClass().toggleClass('scale orange');
                     console.log('add orange class')
                 } else if (uvText > 7 && uvText <= 10) {                    
-                    $('.scale').addClass('red');
+                    $('#uv-div').toggleClass().toggleClass('scale red');
                     console.log('add red class')
                 } else if (uvText >= 11) {                    
-                    $('.scale').addClass('purple');
+                    $('#uv-div').toggleClass().toggleClass('scale purple');
                     console.log('add purple class')
                 }
                 
@@ -166,19 +166,19 @@ var getCurrentConditions = function (searchInput) {
                 var uvText = response.current.uvi
                 console.log(uvText)
                 if (uvText <= 2) {                    
-                    $('.scale').addClass('green');
+                    $('#uv-div').toggleClass().toggleClass('scale green');
                     console.log('add green class')
                 } else if (uvText > 2 && uvText <= 5) {                    
-                    $('.scale').addClass('yellow');
+                    $('#uv-div').toggleClass().toggleClass('scale yellow');
                     console.log('add yellow class')
                 } else if (uvText > 5 && uvText <= 7) {                    
-                    $('.scale').addClass('orange');
+                    $('#uv-div').toggleClass().toggleClass('scale orange');
                     console.log('add orange class')
                 } else if (uvText > 7 && uvText <= 10) {                    
-                    $('.scale').addClass('red');
+                    $('#uv-div').toggleClass().toggleClass('scale red');
                     console.log('add red class')
                 } else if (uvText >= 11) {                    
-                    $('.scale').addClass('purple');
+                    $('#uv-div').toggleClass().toggleClass('scale purple');
                     console.log('add purple class')
                 }
                 
