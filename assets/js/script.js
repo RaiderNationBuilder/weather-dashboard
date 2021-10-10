@@ -56,7 +56,6 @@ $('#search-history-list').on("click", function (event) {
      });    
 })
 
-
 var callHistoricalConditions = function (historyCity) {
     var apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + historyCity + "&appid=" + apiKey + "&units=imperial";
     fetch(apiUrl)
@@ -65,10 +64,8 @@ var callHistoricalConditions = function (historyCity) {
             return data.json()
         })
         .then(function (response) {
-            // console.log('can we see the data ???',data);
+            currentCity.text(response.name);
 
-            currentCity.text(response.name);  
-            //  console.log(data.weather[0].main)  
             $(todaysDate).text("(" + currentDate + ")")
             $('#current-img').empty()
             $('#current-img').append("<img src='https://openweathermap.org/img/w/" + response.weather[0].icon + ".png' alt='" + response.weather[0].main + "' />")
@@ -111,7 +108,6 @@ var callHistoricalConditions = function (historyCity) {
                     `)
                     
                     $('#five-day-forecast').append(html)
-
                 }
             });
         });
@@ -126,10 +122,8 @@ var getCurrentConditions = function (searchInput) {
             return data.json()
         })
         .then(function (response) {
-            // console.log('can we see the data ???',data);
-
             currentCity.text(response.name);  
-            //  console.log(data.weather[0].main)  
+            
             $(todaysDate).text("(" + currentDate + ")")
             $('#current-img').empty()
             $('#current-img').append("<img src='https://openweathermap.org/img/w/" + response.weather[0].icon + ".png' alt='" + response.weather[0].main + "' />")
@@ -148,8 +142,6 @@ var getCurrentConditions = function (searchInput) {
                 url: oneCall,
                 method: "GET"
             }).then(function (response) {
-
-
                 currentUv.text("UV Index: " + response.current.uvi);
                 console.log('Everything we need ? daily and UVI ??', response);
                 $('#five-day-forecast').empty()
@@ -159,7 +151,6 @@ var getCurrentConditions = function (searchInput) {
                     var dd = someDate.getDate();
                     var mm = someDate.getMonth() + i;
                     var y = someDate.getFullYear();
-
                     var someFormattedDate = dd + '/' + mm + '/' + y;
                     var html = $(`
                     <div class="card">
@@ -172,23 +163,15 @@ var getCurrentConditions = function (searchInput) {
                         </div>
                     </div>
                     `)
-
                     
                     $('#five-day-forecast').append(html)
-
                 }
-
-
-
             });
         });
-
-
 }
 
 function searchHistory(city) {
-    console.log('CITY TO SAVE', city)
-    
+    console.log('CITY TO SAVE', city)    
     //push the new city into the pastSearches array
     if (!pastSearches.includes(city) && pastSearches.length < 8 && city != "") {
         pastSearches.push(city)
@@ -203,13 +186,6 @@ function searchHistory(city) {
         localStorage.setItem('searchHistroy', JSON.stringify(pastSearches))  
     }
     addHtmlHistory(pastSearches)
-    
-    // for development
-    // function clearArray(pastSearches) {
-    //     pastSearches.length = 0
-    //     console.log(pastSearches)
-    // }
-    // clearArray(pastSearches);
 }
   
 function addHtmlHistory(pastSearches) {
