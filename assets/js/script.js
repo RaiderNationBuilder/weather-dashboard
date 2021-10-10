@@ -84,19 +84,26 @@ var callHistoricalConditions = function (historyCity) {
                 url: oneCall,
                 method: "GET"
             }).then(function (response) {
-                currentUv.text("UV Index: " + response.current.uvi)
+                currentUv.text("UV Index: " + response.current.uvi)                
                 var uvText = response.current.uvi
                 console.log(uvText)
-                switch(uvText) {
-                    case uvText < 2:
-                        $(currentUv).attr('class', 'green');
-                    break;
-                    case 2:
-                     //execute code block 2
-                     break;
-                    default:
-                    // code to be executed if n is different from case 1 and 2
-                   }   
+                if (uvText <= 2) {                    
+                    $('.scale').addClass('green');
+                    console.log('add green class')
+                } else if (uvText > 2 && uvText <= 5) {                    
+                    $('.scale').addClass('yellow');
+                    console.log('add yellow class')
+                } else if (uvText > 5 && uvText <= 7) {                    
+                    $('.scale').addClass('orange');
+                    console.log('add orange class')
+                } else if (uvText > 7 && uvText <= 10) {                    
+                    $('.scale').addClass('red');
+                    console.log('add red class')
+                } else if (uvText >= 11) {                    
+                    $('.scale').addClass('purple');
+                    console.log('add purple class')
+                }
+                
                 console.log('Everything we need ? daily and UVI ??', response);
                 $('#five-day-forecast').empty()
                 for (let i = 0; i < 5; i++) {

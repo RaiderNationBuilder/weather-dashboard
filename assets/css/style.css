@@ -108,6 +108,42 @@ h5 {
     padding: 0.1rem 0 0.7rem 0.1em;
 }
 
+.uv {
+    display: flex;
+    flex-direction: row;
+}
+
+.span-uv {
+    margin-left: .5rem;
+    margin-top: .3em;
+    /* opacity: 0.2; */
+}
+
+.scale {
+    width: 1rem;
+    height: 1rem;
+}
+
 .green {
-    color: green
+    background-color: green;    
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.red {
+    background-color: red;
+}
+
+.purple {
+    background-color: purple;
+}
+
+.opacity {
+    opacity: 1;
 }
