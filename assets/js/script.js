@@ -88,7 +88,19 @@ var callHistoricalConditions = function (historyCity) {
                 url: oneCall,
                 method: "GET"
             }).then(function (response) {
-                currentUv.text("UV Index: " + response.current.uvi);
+                currentUv.text("UV Index: " + response.current.uvi)
+                var uvText = response.current.uvi
+                console.log(uvText)
+                switch(uvText) {
+                    case x < 2:
+                        $(currentUv).attr('class', 'green');
+                    break;
+                    case 2:
+                     //execute code block 2
+                     break;
+                    default:
+                    // code to be executed if n is different from case 1 and 2
+                   }   
                 console.log('Everything we need ? daily and UVI ??', response);
                 $('#five-day-forecast').empty()
                 for (let i = 0; i < 5; i++) {
@@ -153,7 +165,7 @@ var getCurrentConditions = function (searchInput) {
 
 
                 currentUv.text("UV Index: " + response.current.uvi);
-                console.log('Everything we need ? daily and UVI ??', response);
+                
                 $('#five-day-forecast').empty()
                 for (let i = 0; i < 5; i++) {
                     var someDate = new Date()
