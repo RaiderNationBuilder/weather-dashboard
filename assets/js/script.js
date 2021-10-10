@@ -194,7 +194,7 @@ var getCurrentConditions = function (searchInput) {
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Date ${someFormattedDate}</h5>
-                            <img src="https://openweathermap.org/img/w/" ${response.daily[i].weather[0].icon} ".png" alt=" ${response.daily[i].weather[0].icon} "/>}
+                            <img src="https://openweathermap.org/img/w/ ${response.daily[i].weather[0].icon} .png" alt=" ${response.daily[i].weather[0].icon} "/>}
                             <p class="card-text">Temp: ${response.daily[i].temp.day} </p>
                             <p class="card-text">Wind: ${response.daily[i].wind_speed}</p>
                             <p class="card-text">Humidity: ${response.daily[i].humidity}</p>
