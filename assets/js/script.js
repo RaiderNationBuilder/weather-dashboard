@@ -157,13 +157,30 @@ var getCurrentConditions = function (searchInput) {
             var longitude = response.coord.lon;
 
             var oneCall = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + latitude + '&lon=' + longitude + '&exclude=hourly,minutely&appid=' + apiKey + '&units=imperial'
-            var uvUrl = "https://api.openweathermap.org/data/2.5/uvi?&lat=" + latitude + "&lon=" + longitude + "&appid=" + apiKey;
             // AJAX Call for UV index
             $.ajax({
                 url: oneCall,
                 method: "GET"
             }).then(function (response) {
                 currentUv.text("UV Index: " + response.current.uvi);
+                var uvText = response.current.uvi
+                console.log(uvText)
+                if (uvText <= 2) {                    
+                    $('.scale').addClass('green');
+                    console.log('add green class')
+                } else if (uvText > 2 && uvText <= 5) {                    
+                    $('.scale').addClass('yellow');
+                    console.log('add yellow class')
+                } else if (uvText > 5 && uvText <= 7) {                    
+                    $('.scale').addClass('orange');
+                    console.log('add orange class')
+                } else if (uvText > 7 && uvText <= 10) {                    
+                    $('.scale').addClass('red');
+                    console.log('add red class')
+                } else if (uvText >= 11) {                    
+                    $('.scale').addClass('purple');
+                    console.log('add purple class')
+                }
                 
                 $('#five-day-forecast').empty()
                 for (let i = 0; i < 5; i++) {
